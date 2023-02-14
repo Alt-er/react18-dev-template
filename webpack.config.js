@@ -38,6 +38,7 @@ module.exports = (env, argv) => {
             alias: {
                 "@": path.resolve(__dirname, "src"),
             },
+            extensions: [".tsx", ".ts", ".js"],
         },
         module: {
             rules: [
@@ -56,6 +57,11 @@ module.exports = (env, argv) => {
                         presets: [["@babel/preset-react", { runtime: "automatic" }]],
                         //  "plugins": ["@babel/plugin-transform-regenerator"]
                     },
+                },
+                {
+                    test: /\.tsx?$/,
+                    use: "ts-loader",
+                    exclude: /node_modules/,
                 },
                 {
                     test: /\.css$/,

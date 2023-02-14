@@ -1,5 +1,6 @@
 import BlankLayout from "@/layouts/BlankLayout";
 import Home from "@/pages/Home";
+import TsTest from "@/pages/TsTest";
 import React from "react";
 import { Navigate } from "react-router-dom";
 
@@ -49,6 +50,14 @@ export default [
         element: <BlankLayout />,
         children: [
             { index: true, element: <Home /> },
+            // { path: "/home/project", element: <MyProject /> },
+        ],
+    },
+    {
+        path: "/tstest", // 主页
+        element: <BlankLayout />,
+        children: [
+            { index: true, element: <TsTest /> },
             // { path: "/home/project", element: <MyProject /> },
         ],
     },
