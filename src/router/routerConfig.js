@@ -31,6 +31,8 @@ import { Navigate } from "react-router-dom";
 // const BlankLayout = React.lazy(() => import("@/layouts/BlankLayout"));
 const NoFoundPage = React.lazy(() => import("@/pages/404"));
 
+// const Home = isProduction ? React.lazy(() => import('@/pages/404')) : require('@/pages/404').default;
+
 // 平级路由 只需要 path 和 element
 
 // 嵌套路由 需要多一个children属性 , 并且父组件中必须渲染  <Outlet /> ,此时父节点的element相当于子节点的容器，可以实现布局

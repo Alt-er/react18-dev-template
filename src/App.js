@@ -1,4 +1,4 @@
-import "./global.less";
+import "./global.css";
 
 import { BrowserRouter as Router } from "react-router-dom";
 import { RecoilRoot } from "recoil";
