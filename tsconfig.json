@@ -8,7 +8,7 @@
         "jsx": "react-jsx",
         "allowJs": true,
         "moduleResolution": "node",
-	 "paths": {
+	    "paths": {
             "@/*": ["./src/*"]
         }
     }

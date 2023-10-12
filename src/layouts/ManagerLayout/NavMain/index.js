@@ -1,32 +1,32 @@
-import { AccountBookOutlined, AppstoreAddOutlined, BankOutlined, DownOutlined, LaptopOutlined } from "@ant-design/icons";
-import classNames from "classnames";
-import React, { useEffect, useRef, useState } from "react";
-import { BrowserRouter, NavLink, useLocation } from "react-router-dom";
-import { RecoilRoot, useSetRecoilState } from "recoil";
+import { AccountBookOutlined, AppstoreAddOutlined, BankOutlined, DownOutlined, LaptopOutlined } from '@ant-design/icons';
+import classNames from 'classnames';
+import React, { useEffect, useRef, useState } from 'react';
+import { BrowserRouter, NavLink, useLocation } from 'react-router-dom';
+import { RecoilRoot, useSetRecoilState } from 'recoil';
 
-import { notificationAnnouncement } from "@/services/manager";
-import { useRequest } from "@/utils/request";
+import { notificationAnnouncement } from '@/services/manager';
+import { useRequest } from '@/utils/request';
 
-import styles from "./index.less";
+import styles from './index.less';
 
 const opt = {};
 let initialVal = true;
 const routerData = [
     {
-        pathname: "/manager/project",
+        pathname: '/manager/project',
     },
     {
-        pathname: "/manager/data",
+        pathname: '/manager/data',
     },
     {
-        pathname: "/manager/com",
+        pathname: '/manager/com',
     },
     {
-        pathname: "/manager/case",
+        pathname: '/manager/case',
     },
 ];
 const NavMain = () => {
-    console.log("Header渲染了");
+    console.log('Header渲染了');
     const location = useLocation();
     if (initialVal) {
         opt.currentIndex = routerData.findIndex((item) => item.pathname == location.pathname);
@@ -40,7 +40,7 @@ const NavMain = () => {
     console.log(location);
     // canvas导航
     const calcTabs = () => {
-        const link = document.querySelectorAll(".nav-main .nav-span");
+        const link = document.querySelectorAll('.nav-main .nav-span');
         const arr = [];
         let num = 0;
         link.forEach((item) => {
@@ -57,7 +57,7 @@ const NavMain = () => {
     };
     const initCanvas = (canvas, width, height) => {
         const { devicePixelRatio } = window;
-        const canvasObj = canvas.getContext("2d");
+        const canvasObj = canvas.getContext('2d');
         canvas.width = width * devicePixelRatio;
         canvas.height = height * devicePixelRatio;
         canvas.style.width = `${width}px`;
@@ -68,12 +68,12 @@ const NavMain = () => {
         const num1 = 140;
         const num2 = 63;
         const num3 = 1;
-        let canvasDom = document.createElement("canvas");
+        let canvasDom = document.createElement('canvas');
         canvasDom.width = num1;
         canvasDom.height = num2;
         canvasDom.style.width = `${num1 / num3}px`;
         canvasDom.style.height = `${num2 / num3}px`;
-        const canvasContext = canvasDom.getContext("2d");
+        const canvasContext = canvasDom.getContext('2d');
         canvasContext.scale(1, 1);
         canvasContext.lineWidth = 0.4;
         for (let g = 3, h = 0.8, j = 1; j < 30; j++) {
@@ -91,7 +91,7 @@ const NavMain = () => {
             canvasContext.closePath();
             if (j > 10) h -= 0.1;
         }
-        const i = canvas.getContext("2d").createPattern(canvasDom, "repeat-x");
+        const i = canvas.getContext('2d').createPattern(canvasDom, 'repeat-x');
         opt.pattern = i;
         canvasDom = null;
     };
@@ -140,24 +140,24 @@ const NavMain = () => {
         }
     };
     const drawHightlight = (num) => {
-        const canvasContext = opt.canvas.getContext("2d");
+        const canvasContext = opt.canvas.getContext('2d');
         const num1 = 0.3;
         // clearRect 在给定的矩形内清除指定的像素,这里清完了
         canvasContext.clearRect(0, 0, 2 * opt.width, 2 * opt.height);
-        canvasContext.shadowColor = "rgba(38, 129, 255, 1)";
+        canvasContext.shadowColor = 'rgba(38, 129, 255, 1)';
         canvasContext.shadowBlur = 5;
-        canvasContext.strokeStyle = "#2681ff";
+        canvasContext.strokeStyle = '#2681ff';
         canvasContext.lineWidth = 0.8;
-        canvasContext.fillStyle = "none";
+        canvasContext.fillStyle = 'none';
         draw2(canvasContext, false);
         const te = canvasContext.createLinearGradient(0, 0, opt.width, opt.height);
         const num2 = num - num1;
-        te.addColorStop(Math.min(1, Math.max(0, 0 + num2)), "rgba(0,0,0,0)");
-        te.addColorStop(Math.min(1, Math.max(0, 0 + num2)), "rgba(0,0,0,0)");
-        te.addColorStop(Math.min(1, Math.max(0, 0 + num2 + 0.1)), "#8ED6FF");
-        te.addColorStop(Math.min(1, 0 + num2 + num1), "#8ED6FF");
-        te.addColorStop(Math.min(1, 0 + num2 + num1 + 0.1), "rgba(0,0,0,0)");
-        te.addColorStop(1, "rgba(0,0,0,0)");
+        te.addColorStop(Math.min(1, Math.max(0, 0 + num2)), 'rgba(0,0,0,0)');
+        te.addColorStop(Math.min(1, Math.max(0, 0 + num2)), 'rgba(0,0,0,0)');
+        te.addColorStop(Math.min(1, Math.max(0, 0 + num2 + 0.1)), '#8ED6FF');
+        te.addColorStop(Math.min(1, 0 + num2 + num1), '#8ED6FF');
+        te.addColorStop(Math.min(1, 0 + num2 + num1 + 0.1), 'rgba(0,0,0,0)');
+        te.addColorStop(1, 'rgba(0,0,0,0)');
         canvasContext.lineWidth = 1.5;
         canvasContext.strokeStyle = te;
         canvasContext.fillStyle = opt.pattern;
@@ -183,7 +183,7 @@ const NavMain = () => {
         return (bNum = Math.max(Math.abs(bNum), 2.5) * Math.sign(bNum)), bNum;
     };
     const toggle = (navindex) => {
-        if (typeof navindex !== "undefined" && navindex !== opt.currentIndex && opt.tabWidthList && opt.tabWidthList.length && (!opt.animating || navindex !== opt.nextIndex)) {
+        if (typeof navindex !== 'undefined' && navindex !== opt.currentIndex && opt.tabWidthList && opt.tabWidthList.length && (!opt.animating || navindex !== opt.nextIndex)) {
             opt.animating = true;
             opt.distance = opt.tabWidthList[navindex] - opt.tabWidthList[opt.currentIndex];
             opt.avgSpeed = calcAVGSpeed(opt.distance);
@@ -193,24 +193,24 @@ const NavMain = () => {
     };
     useEffect(() => {
         // setTimeout(() => {
-        opt.canvas = document.getElementById("canvas");
+        opt.canvas = document.getElementById('canvas');
         calcTabs();
         initCanvas(opt.canvas, opt.width, opt.height);
         createPattern(opt.canvas);
         draw(0);
         // // }, 200);
-        window.addEventListener("resize", resize);
+        window.addEventListener('resize', resize);
         return () => {
-            window.removeEventListener("resize", resize); // 卸载
+            window.removeEventListener('resize', resize); // 卸载
         };
     }, []);
     // const announcementList = ["1.  「重要通知」DataV 线上数据库将于12.28 晚 8 点至晚 10 点期间进行升级维护，请尽量避开该时段，感谢您的理解 2. DataV 「新版4.0」已重磅发布 3. DataV 仅支持谷歌 Chrome 浏览器版本 56 以上。 4. 用户使用中如遇到问题，推荐直接提交工单。也可前往钉钉群提问，钉钉群号：21931738 。"];
 
     return (
-        <div className={classNames(styles.navMain, "nav-main")}>
-            <canvas id="canvas" style={{ position: "absolute", left: `0px`, zIndex: -1 }} />
+        <div className={classNames(styles.navMain, 'nav-main')}>
+            <canvas id="canvas" style={{ position: 'absolute', left: `0px`, zIndex: -1 }} />
             <span
-                className={classNames("nav-span", styles.navSpan)}
+                className={classNames('nav-span', styles.navSpan)}
                 onClick={() => {
                     toggle(0);
                 }}
@@ -220,9 +220,9 @@ const NavMain = () => {
                     // className={classNames(styles.navLink)}
                     className={({ isActive }) => (isActive ? classNames(styles.navLink, styles.activeNavLink) : styles.navLink)}
                     style={() => {
-                        if (location?.pathname == "/manager" || location?.pathname == "/manager/") {
+                        if (location?.pathname == '/manager' || location?.pathname == '/manager/') {
                             return {
-                                color: "#fff",
+                                color: '#fff',
                             };
                         }
                     }}
@@ -232,7 +232,7 @@ const NavMain = () => {
                 </NavLink>
             </span>
             <span
-                className={classNames("nav-span", styles.navSpan)}
+                className={classNames('nav-span', styles.navSpan)}
                 onClick={() => {
                     toggle(1);
                 }}
@@ -247,7 +247,7 @@ const NavMain = () => {
                 </NavLink>
             </span>
             <span
-                className={classNames("nav-span", styles.navSpan)}
+                className={classNames('nav-span', styles.navSpan)}
                 onClick={() => {
                     toggle(2);
                 }}
@@ -262,7 +262,7 @@ const NavMain = () => {
                 </NavLink>
             </span>
             <span
-                className={classNames("nav-span", styles.navSpan)}
+                className={classNames('nav-span', styles.navSpan)}
                 onClick={() => {
                     toggle(3);
                 }}

@@ -1,8 +1,8 @@
-import BlankLayout from "@/layouts/BlankLayout";
-import Home from "@/pages/Home";
-import TsTest from "@/pages/TsTest";
-import React from "react";
-import { Navigate } from "react-router-dom";
+import BlankLayout from '@/layouts/BlankLayout';
+import Home from '@/pages/Home';
+import TsTest from '@/pages/TsTest';
+import React from 'react';
+import { Navigate } from 'react-router-dom';
 
 // const MyCase = React.lazy(() => import("@/pages/Manager/MyCase"));
 // const MyComs = React.lazy(() => import("@/pages/Manager/MyComs"));
@@ -29,7 +29,7 @@ import { Navigate } from "react-router-dom";
 // const RendererWarpper = React.lazy(() => import("@/pages/RendererWarpper"));
 // const ShareWarpper = React.lazy(() => import("@/pages/ShareWarpper"));
 // const BlankLayout = React.lazy(() => import("@/layouts/BlankLayout"));
-const NoFoundPage = React.lazy(() => import("@/pages/404"));
+const NoFoundPage = React.lazy(() => import('@/pages/404'));
 
 // 平级路由 只需要 path 和 element
 
@@ -42,11 +42,11 @@ const NoFoundPage = React.lazy(() => import("@/pages/404"));
 
 export default [
     {
-        path: "/",
+        path: '/',
         element: <Navigate to="/home" />,
     },
     {
-        path: "/home", // 主页
+        path: '/home', // 主页
         element: <BlankLayout />,
         children: [
             { index: true, element: <Home /> },
@@ -54,7 +54,7 @@ export default [
         ],
     },
     {
-        path: "/tstest", // 主页
+        path: '/tstest', // 主页
         element: <BlankLayout />,
         children: [
             { index: true, element: <TsTest /> },
@@ -139,6 +139,6 @@ export default [
     //         { index: true, element: <NoFoundPage /> },
     //     ],
     // },
-    { path: "404", element: <NoFoundPage /> },
-    { path: "*", element: <NoFoundPage /> },
+    { path: '404', element: <NoFoundPage /> },
+    { path: '*', element: <NoFoundPage /> },
 ];

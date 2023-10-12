@@ -1,16 +1,16 @@
-import { BlockOutlined, CaretDownOutlined, DesktopOutlined, DownOutlined, FileTextOutlined, LoginOutlined, MessageOutlined, PhoneOutlined, UserOutlined } from "@ant-design/icons";
-import { message, Tooltip } from "antd";
-import classNames from "classnames";
-import { copy } from "clipboard";
-import React, { useEffect, useRef, useState } from "react";
-import { useRecoilState } from "recoil";
+import { BlockOutlined, CaretDownOutlined, DesktopOutlined, DownOutlined, FileTextOutlined, LoginOutlined, MessageOutlined, PhoneOutlined, UserOutlined } from '@ant-design/icons';
+import { message, Tooltip } from 'antd';
+import classNames from 'classnames';
+import { copy } from 'clipboard';
+import React, { useEffect, useRef, useState } from 'react';
+import { useRecoilState } from 'recoil';
 
-import CosyDropdown from "@/components/CosyDropdown";
-import { userInfoAtom } from "@/recoil/user";
-import { notificationAnnouncement } from "@/services/manager";
-import { useRequest } from "@/utils/request";
+import CosyDropdown from '@/components/CosyDropdown';
+import { userInfoAtom } from '@/recoil/user';
+import { notificationAnnouncement } from '@/services/manager';
+import { useRequest } from '@/utils/request';
 
-import styles from "./index.less";
+import styles from './index.less';
 
 const headerImgArr = [
     {
@@ -37,7 +37,7 @@ const headerImgArr = [
 
 const TopHeader = () => {
     const [displayImgIndex, setDisplayImgIndex] = useState(0);
-    const [announcementList, setAnnouncementList] = useState([""]);
+    const [announcementList, setAnnouncementList] = useState(['']);
     const userId = useRef();
     const imgIntervalRef = useRef();
 
@@ -45,18 +45,18 @@ const TopHeader = () => {
     const [userInfoData, setUserInfoData] = useRecoilState(userInfoAtom);
 
     const userMenu = [
-        { key: "user", label: "用户中心", icon: <UserOutlined /> },
-        { key: "logout", label: "退出", icon: <LoginOutlined /> },
+        { key: 'user', label: '用户中心', icon: <UserOutlined /> },
+        { key: 'logout', label: '退出', icon: <LoginOutlined /> },
     ];
 
     const helpMenu = [
-        { key: "helpDoc", label: "帮助文档", icon: <FileTextOutlined /> },
-        { key: "contact", label: "联系客服", icon: <PhoneOutlined /> },
-        { key: "forum", label: "社区论坛", icon: <MessageOutlined /> },
+        { key: 'helpDoc', label: '帮助文档', icon: <FileTextOutlined /> },
+        { key: 'contact', label: '联系客服', icon: <PhoneOutlined /> },
+        { key: 'forum', label: '社区论坛', icon: <MessageOutlined /> },
     ];
 
     const workspaceMenu = [
-        { key: "12412412532", label: "默认工作空间", icon: <DesktopOutlined /> },
+        { key: '12412412532', label: '默认工作空间', icon: <DesktopOutlined /> },
         // { key: "add", label: "新建与管理" },
     ];
     /**
@@ -86,16 +86,16 @@ const TopHeader = () => {
     const menuClick = (key) => {
         console.log(key);
         switch (key) {
-            case "add":
+            case 'add':
                 // 新建工作空间
-                console.log("新建工作空间");
-                window.open("/visual/manager/workspace");
+                console.log('新建工作空间');
+                window.open('/visual/manager/workspace');
                 break;
-            case "user":
-                window.open("/visual/manager/userContent");
+            case 'user':
+                window.open('/visual/manager/userContent');
                 break;
-            case "logout":
-                window.location.href = "/logout";
+            case 'logout':
+                window.location.href = '/logout';
                 break;
             default:
                 break;
@@ -112,7 +112,7 @@ const TopHeader = () => {
                             <div className={styles.topTip}>
                                 <strong className={styles.tipStrong}>公告</strong>
                                 <div className={styles.cosyvMarquee}>
-                                    <span className={styles.content} style={{ animationDuration: "50s" }} title={announcementList[0]}>
+                                    <span className={styles.content} style={{ animationDuration: '50s' }} title={announcementList[0]}>
                                         {announcementList[0]}
                                         <span className={styles.contentSpace} />
                                         {announcementList[0]}
@@ -129,7 +129,7 @@ const TopHeader = () => {
                             onClick={({ key }) => menuClick(key)}
                             overlay={workspaceMenu}
                             arrow={{ pointAtCenter: true }}
-                        // placement="bottomLeft"
+                            // placement="bottomLeft"
                         >
                             <div className={styles.headerItem}>
                                 <BlockOutlined style={{ color: `#2681ff` }} />
@@ -141,7 +141,7 @@ const TopHeader = () => {
                         </CosyDropdown>
                         <CosyDropdown
                             onClick={({ key }) => menuClick(key)}
-                            overlay={userInfoData.userid && userInfoData.userid == "admin" ? userMenu : userMenu.slice(1)}
+                            overlay={userInfoData.userid && userInfoData.userid == 'admin' ? userMenu : userMenu.slice(1)}
                             arrow={{ pointAtCenter: true }}
                             customdom={
                                 <div className={styles.userInfo}>
@@ -153,7 +153,7 @@ const TopHeader = () => {
                                             onClick={(e) => {
                                                 e.stopPropagation();
                                                 copy(e.target.innerText);
-                                                message.success("复制成功");
+                                                message.success('复制成功');
                                             }}
                                         >
                                             {userInfoData.userid}
@@ -163,25 +163,27 @@ const TopHeader = () => {
                             }
                         >
                             <div className={styles.headerItem}>
-                                <DownOutlined style={{
-                                    color: `#fff`,
-                                    background: `#fa9c3a`,
-                                    borderRadius: `50%`,
-                                    overflow: `hidden`,
-                                    padding: `2px`
-                                }} />
+                                <DownOutlined
+                                    style={{
+                                        color: `#fff`,
+                                        background: `#fa9c3a`,
+                                        borderRadius: `50%`,
+                                        overflow: `hidden`,
+                                        padding: `2px`,
+                                    }}
+                                />
                                 {/* <DownOutlined /> */}
                                 <span className={styles.userName} title={userInfoData.name}>
                                     {userInfoData.name}
                                 </span>
-                                <CaretDownOutlined style={{ verticalAlign: "middle" }} />
+                                <CaretDownOutlined style={{ verticalAlign: 'middle' }} />
                             </div>
                         </CosyDropdown>
 
                         <CosyDropdown overlay={helpMenu} arrow={{ pointAtCenter: true }}>
                             <div className={styles.headerItem}>
                                 <span className={styles.userName}>帮助</span>
-                                <CaretDownOutlined style={{ verticalAlign: "middle" }} />
+                                <CaretDownOutlined style={{ verticalAlign: 'middle' }} />
                             </div>
                         </CosyDropdown>
                     </div>

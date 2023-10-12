@@ -1,10 +1,11 @@
-import Home from "../Home";
-import { Button, Result } from "antd";
+import Home from '../Home';
+import { Button, Result } from 'antd';
 
 type Props = { name: string; age: number };
 
 export default function TsTest(): JSX.Element {
-    const a = "111";
+    const a = '111';
+    const aaa = 'ssssssssssss';
     return (
         <>
             <TsTest2 name="张三" age={18}></TsTest2>

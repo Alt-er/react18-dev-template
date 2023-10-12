@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 // 获取执行环境
 // console.info(process.env.NODE_ENV);
@@ -7,7 +7,7 @@ import React from "react";
 async function loadComponent(scope, module) {
     // return async () => {
     // Initializes the share scope. This fills it with known provided modules from this build and all remotes
-    await __webpack_init_sharing__("default");
+    await __webpack_init_sharing__('default');
     const container = window[scope]; // or get the container somewhere else
     // Initialize the container, it may provide shared modules
     // eslint-disable-next-line camelcase
@@ -32,7 +32,7 @@ let remoteComponentInfo = null;
 
 let remoteRendererInfo = null;
 
-const CONFIG_URL = `/cosy/mfConfig${process.env.NODE_ENV === "development" ? "?mode=development" : ""}`;
+const CONFIG_URL = `/cosy/mfConfig${process.env.NODE_ENV === 'development' ? '?mode=development' : ''}`;
 
 async function loadRemoteConfig() {
     const res = await fetch(CONFIG_URL);
@@ -53,9 +53,9 @@ async function loadLocalConfig(loadedDynamicComponentConfig) {
 async function loadScript(url) {
     return new Promise((r) => {
         // load script
-        const element = document.createElement("script");
+        const element = document.createElement('script');
         element.src = url;
-        element.type = "text/javascript";
+        element.type = 'text/javascript';
         element.async = true;
 
         element.onload = () => {

@@ -1,17 +1,17 @@
-import { Spin } from "antd";
-import React, { useEffect, useState } from "react";
-import { useRoutes } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { Spin } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { useRoutes } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 
-import NoAuth from "@/pages/403";
-import LoadingPage from "@/pages/LoadingPage";
+import NoAuth from '@/pages/403';
+import LoadingPage from '@/pages/LoadingPage';
 // import { userInfoAtom } from "@/recoil/user";
 // import { userInfo } from "@/services/manager";
 // import { useRequest } from "@/utils/request";
 
-import routerConfig from "./routerConfig";
+import routerConfig from './routerConfig';
 
-const fallbackStyle = { paddingTop: 100, textAlign: "center" };
+const fallbackStyle = { paddingTop: 100, textAlign: 'center' };
 export default function RouterApp() {
     // const [userInfoData, setUserInfoData] = useRecoilState(userInfoAtom);
 

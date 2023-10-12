@@ -16,5 +16,8 @@
     "liveServer.settings.port": 5501,
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }

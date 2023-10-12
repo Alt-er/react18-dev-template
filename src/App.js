@@ -1,10 +1,10 @@
-import "./global.less";
+import './global.less';
 
-import { BrowserRouter as Router } from "react-router-dom";
-import { RecoilRoot } from "recoil";
+import { BrowserRouter as Router } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
 
-import RouterApp from "./router/RouterApp";
-import React from "react";
+import RouterApp from './router/RouterApp';
+import React from 'react';
 
 // basename="/designer"
 
