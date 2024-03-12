@@ -1,10 +1,10 @@
 import { Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useRoutes } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
 
-import NoAuth from '@/pages/403';
 import LoadingPage from '@/pages/LoadingPage';
+import NoAuth from '@/pages/403';
+
 // import { userInfoAtom } from "@/recoil/user";
 // import { userInfo } from "@/services/manager";
 // import { useRequest } from "@/utils/request";

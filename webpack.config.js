@@ -113,7 +113,7 @@ module.exports = (env, argv) => {
             }),
             new webpack.DefinePlugin({
                 'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-                'process.env.MOCK': true, // mock 数据开关 ,不使用的时候设置为false
+                'process.env.MOCK': 'true', // mock 数据开关 ,不使用的时候设置为false
             }),
             new CopyPlugin({
                 patterns: [{ from: 'static', to: 'static' }],

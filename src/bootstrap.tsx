@@ -7,5 +7,5 @@ import App from './App';
 // ReactDOM.render(<App />, document.getElementById("root"));
 
 // react18 方式
-const root = document.getElementById('root');
+const root = document.getElementById('root') as HTMLDivElement;
 ReactDOM.createRoot(root).render(<App />);

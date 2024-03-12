@@ -1,21 +1,19 @@
-import './global.less';
-
 import { BrowserRouter as Router } from 'react-router-dom';
-import { RecoilRoot } from 'recoil';
-
 import RouterApp from './router/RouterApp';
 import React from 'react';
+import { Provider } from 'jotai';
+import myStore from './store';
 
 // basename="/designer"
 
 function App() {
     return (
         <React.StrictMode>
-            <RecoilRoot>
+            <Provider store={myStore}>
                 <Router basename="/">
                     <RouterApp />
                 </Router>
-            </RecoilRoot>
+            </Provider>
         </React.StrictMode>
     );
 }
