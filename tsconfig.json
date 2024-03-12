@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
-        "target": "esnext",
+        "target": "ES6",
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
         "skipLibCheck": true,
@@ -20,6 +20,6 @@
         },
         "outDir": "./dist"
     },
-    "include": ["src"],
+    "include": ["./src/**/*"],
     "exclude": ["node_modules", "dist"]
 }
