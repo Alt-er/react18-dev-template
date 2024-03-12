@@ -34,6 +34,7 @@ module.exports = (env, argv) => {
             historyApiFallback: true, // 单页应用使用 404时调整到主页
         },
         output: {
+            filename: 'bundle.[contenthash].js',
             publicPath: 'auto',
             path: path.resolve(__dirname, './dist'),
         },
