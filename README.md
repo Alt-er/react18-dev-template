@@ -42,7 +42,7 @@
 
 -----pages 页面组件
 
------recoil 全局状态管理
+-----store 全局状态管理
 
 -----services 所有的网络请求 API
 
@@ -51,8 +51,6 @@
 -----App.js 顶级组件
 
 -----bootstrap.js 入口中间处理
-
------global.less 全局样式
 
 -----index.js 顶级入口
 
