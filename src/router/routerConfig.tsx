@@ -1,5 +1,7 @@
 import BlankLayout from '@/layouts/BlankLayout';
+import ManagerLayout from '@/layouts/ManagerLayout';
 import Home from '@/pages/Home';
+import ModelDesigner from '@/pages/ModelDesigner';
 import TsTest from '@/pages/TsTest';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
@@ -58,6 +60,22 @@ export default [
         element: <BlankLayout />,
         children: [
             { index: true, element: <TsTest /> },
+            // { path: "/home/project", element: <MyProject /> },
+        ],
+    },
+    {
+        path: '/tstest2', // 主页
+        element: <ManagerLayout />,
+        children: [
+            { index: true, element: <TsTest /> },
+            // { path: "/home/project", element: <MyProject /> },
+        ],
+    },
+    {
+        path: '/model-designer', // 主页
+        element: <BlankLayout />,
+        children: [
+            { index: true, element: <ModelDesigner /> },
             // { path: "/home/project", element: <MyProject /> },
         ],
     },
