@@ -44,6 +44,9 @@ module.exports = (env, argv) => {
                 '@': path.resolve(__dirname, 'src'),
             },
             extensions: ['.tsx', '.ts', '.js'],
+            fallback: {
+                stream: require.resolve('stream-browserify'),
+            },
         },
         module: {
             rules: [
