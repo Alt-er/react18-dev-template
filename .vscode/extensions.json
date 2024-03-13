@@ -3,7 +3,8 @@
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
         "stylelint.vscode-stylelint",
-        "clinyong.vscode-css-modules"
+        "clinyong.vscode-css-modules",
+        "styled-components.vscode-styled-components"
         // "wangzy.sneak-mark"
     ]
 }
