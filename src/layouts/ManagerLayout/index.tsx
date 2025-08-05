@@ -95,12 +95,14 @@ export default function ManagerLayout() {
                 <div
                     className="logo"
                     style={{
-                        height: '32px',
-                        margin: collapsed ? '16px auto' : '16px',
-                        textAlign: 'center',
+                        height: '48px',
+                        margin: '16px',
+                        background: token.colorPrimary,
+                        borderRadius: '6px',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
+                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
                     }}
                 >
                     {collapsed ? (
@@ -125,9 +127,9 @@ export default function ManagerLayout() {
                             />
                             <span
                                 style={{
-                                    fontSize: '16px',
-                                    fontWeight: '500',
-                                    color: token.colorText,
+                                    fontSize: '18px',
+                                    fontWeight: '600',
+                                    color: '#fff',
                                     whiteSpace: 'nowrap',
                                 }}
                             >
@@ -144,7 +146,9 @@ export default function ManagerLayout() {
                     style={{
                         background: 'transparent',
                         borderRight: 0,
+                        marginTop: '8px',
                     }}
+                    theme="light"
                 />
             </Sider>
             <Layout>
