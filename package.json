@@ -48,6 +48,7 @@
         "webpack-dev-server": "^4.7.2"
     },
     "dependencies": {
+        "@ant-design/icons": "^6.0.0",
         "ahooks": "^3.9.0",
         "antd": "^5.26.7",
         "antd-style": "^3.7.1",

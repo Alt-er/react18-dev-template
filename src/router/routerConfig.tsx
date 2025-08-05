@@ -49,7 +49,7 @@ export default [
     },
     {
         path: '/home', // 主页
-        element: <BlankLayout />,
+        element: <ManagerLayout />,
         children: [
             { index: true, element: <Home /> },
             // { path: "/home/project", element: <MyProject /> },

@@ -1,25 +1,20 @@
-import { readWriteAtom } from '@/store/Test';
-import { Button } from 'antd';
-import { useAtom } from 'jotai';
-import { useStyles } from './styles';
+import request from '@/utils/axios';
+import React, { useEffect } from 'react';
 
-export default function Home() {
-    const [price2, setPrice2] = useAtom(readWriteAtom);
-    // styles 对象在 useStyles 方法中默认会被缓存，所以不用担心 re-render 问题
-    const { styles, cx, theme } = useStyles();
-
+const Home: React.FC = () => {
+    useEffect(() => {
+        async () => {
+            const a = await request.get(`/cosy/menuTest1`);
+            console.info(a);
+        };
+    }, []);
     return (
-        <div className={cx('a-simple-create-style-demo-classname', styles.container)}>
-            我是HOME
-            <div className={styles.card}>createStyles Demo</div>
-            <div>{price2}</div>
-            <Button
-                onClick={() => {
-                    setPrice2(price2 + 1);
-                }}
-            >
-                点击
-            </Button>
+        <div style={{ padding: '24px' }}>
+            <h1>校园租车管理系统</h1>
+            <p>欢迎使用校园租车管理系统</p>
+            {/* TODO: Add dashboard content */}
         </div>
     );
-}
+};
+
+export default Home;

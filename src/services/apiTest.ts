@@ -1,7 +1,7 @@
-import API from '@/utils/axios';
+import request from '@/utils/axios';
 
 export async function getMenuTest3(params: Record<string, any> = {}) {
-    return await API.get('/dddd', {
+    return await request.get('/dddd', {
         params: {
             id: 123,
             name: 'John Doe',
@@ -22,7 +22,7 @@ export const createUser = async () => {
             name: 'John Doe',
             email: 'john@example.com',
         };
-        const response = await API.post('/api/users', user, {
+        const response = await request.post('/api/users', user, {
             headers: {
                 'X-Custom-Header': 'value',
             },
