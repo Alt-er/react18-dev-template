@@ -1,6 +1,7 @@
 {
     "name": "react18-dev-template",
     "version": "1.0.0",
+    "packageManager": "yarn@1.22.22",
     "main": "index.js",
     "license": "MIT",
     "devDependencies": {
