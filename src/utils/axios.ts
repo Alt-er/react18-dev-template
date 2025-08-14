@@ -49,7 +49,7 @@ request.interceptors.response.use(
             // ...
             console.log(res);
             message.error(res.data || res.message);
-            return Promise.reject(new Error(res.data || 'Error'));
+            return Promise.reject(new Error(res.data || res.message || 'Error'));
         } else {
             return res;
         }
