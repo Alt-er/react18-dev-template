@@ -26,7 +26,7 @@ module.exports = (env, argv) => {
             // 代理你的服务
             proxy: {
                 '/cosy': {
-                    target: 'http://localhost:8005',
+                    target: 'htts://c.alter.run',
                     secure: false, // 支持https
                     changeOrigin: true, // 修改host头
                     //pathRewrite: { '^/cosy': '/cosy' }, // 重写路径
