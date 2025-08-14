@@ -41,7 +41,6 @@ request.interceptors.request.use(
 request.interceptors.response.use(
     (response) => {
         // 对响应数据做点什么
-        // 对响应数据做点什么
         const res = response.data;
         // 根据你的业务处理回调
         if (res.status !== 200) {
@@ -49,7 +48,7 @@ request.interceptors.response.use(
             // ...
             console.log(res);
             message.error(res.data || res.message);
-            return Promise.reject(new Error(res.data || res.message || 'Error'));
+            return res; //Promise.reject(new Error(res.data || res.message || 'Error'));
         } else {
             return res;
         }
@@ -71,7 +70,8 @@ request.interceptors.response.use(
                     message.error('登录已过期，请重新登录');
                     // 延迟一秒后刷新页面，让用户看到提示信息
                     setTimeout(() => {
-                        window.location.reload();
+                        // window.location.reload();
+                        location.replace('/login');
                     }, 1000);
                 }
             } else {

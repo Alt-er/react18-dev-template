@@ -20,6 +20,13 @@ export const useLoginUser = () => {
         async () => {
             const response = await getUserInfo();
             if (response.status === 200) {
+                if (!response.data) {
+                    // 未登录，跳转到登录页（避免在登录页时重复跳转）
+                    if (window.location.pathname !== '/login') {
+                        navigate('/login');
+                    }
+                    return null;
+                }
                 setLoginUser(response.data);
                 return response.data;
             } else {
