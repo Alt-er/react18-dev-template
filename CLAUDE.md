@@ -44,11 +44,13 @@ This is a React 18 + TypeScript template project with Ant Design, Jotai for stat
 
 3. **Request Utilities**: When making requests and handling asynchronous operations, prefer using tools from the `ahooks` library.
 
-4. **State Management**: Uses Jotai atoms for global state management. User state is managed in `src/store/user.ts`.
+4. **Styling**: Use `antd-style` for styling components. Styles should be written in a `styles.ts` file in the same directory as the component.
 
-5. **Routing**: Uses React Router with a centralized configuration in `src/router/routerConfig.tsx`.
+5. **State Management**: Uses Jotai atoms for global state management. User state is managed in `src/store/user.ts`.
 
-6. **Authentication**: Login flow with token management and automatic redirect for authenticated routes.
+6. **Routing**: Uses React Router with a centralized configuration in `src/router/routerConfig.tsx`.
+
+7. **Authentication**: Login flow with token management and automatic redirect for authenticated routes.
 
 ## TypeScript Type Design
 
