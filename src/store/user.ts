@@ -1,23 +1,28 @@
 import { atom } from 'jotai';
 
-export interface User {
-    id: string;
+// 用户信息接口（根据后端实际返回的数据结构定义）
+export interface UserInfo {
+    id: number;
+    username: string;
     name: string;
-    avatar?: string;
-    email?: string;
+    gender: number;
+    deptId: number;
+    deptName: string;
+    status: number;
+    createdAt: string;
+    updatedAt: string;
+    roles?: RoleInfo[];
 }
 
-const currentUserAtom = atom<User | null>({ id: '1', name: 'admin' });
+// 角色信息接口
+export interface RoleInfo {
+    id: number;
+    name: string;
+    code: string;
+    status: number;
+}
 
-// Set current user
-export const setCurrentUserAtom = atom<null, [User | null], void>(null, (get, set, user) => {
-    set(currentUserAtom, user);
-});
+export type User = UserInfo;
 
-// Get current user
-export const userAtom = atom((get) => get(currentUserAtom));
-
-// Logout atom
-export const logoutAtom = atom<null, [], void>(null, (get, set) => {
-    set(currentUserAtom, null);
-});
+// 当前登录用户atom
+export const loginUserAtom = atom<User | null>(null);

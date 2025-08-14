@@ -48,7 +48,7 @@ request.interceptors.response.use(
             // 处理错误
             // ...
             console.log(res);
-            message.error(res.data);
+            message.error(res.data || res.message);
             return Promise.reject(new Error(res.data || 'Error'));
         } else {
             return res;

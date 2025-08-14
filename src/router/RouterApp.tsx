@@ -1,45 +1,37 @@
-import { Spin } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { useRoutes } from 'react-router-dom';
+import { useRoutes, useNavigate } from 'react-router-dom';
+import { useLoginUser } from '@/hooks/useLoginUser';
 
 import LoadingPage from '@/pages/LoadingPage';
-import NoAuth from '@/pages/403';
-
-// import { userInfoAtom } from "@/recoil/user";
-// import { userInfo } from "@/services/manager";
-// import { useRequest } from "@/utils/request";
 
 import routerConfig from './routerConfig';
 
-const fallbackStyle = { paddingTop: 100, textAlign: 'center' };
 export default function RouterApp() {
-    // const [userInfoData, setUserInfoData] = useRecoilState(userInfoAtom);
+    const { loginUser: user, refreshLoginUser } = useLoginUser();
+    // 是否初始化了, 主要是检查登录状态
+    const [inited, setInited] = useState(false);
 
-    // const [initUser, setInitUser] = useState(true);
-    // const [auth, setAuth] = useState(true);
-    // const [userInfoWrapper, userInfoWrapperLoading] = useRequest(userInfo);
-    // useEffect(() => {
-    //     const res = userInfoWrapper();
-    //     res.then((r) => {
-    //         const { data, status } = r;
-    //         if (status == 200 && data) {
-    //             if (!data.userid) {
-    //                 setAuth(false);
-    //             } else {
-    //                 setUserInfoData(data);
-    //             }
-    //         } else {
-    //             setAuth(false);
-    //         }
-    //         setInitUser(false);
-    //     });
-    // }, []);
-    // if (initUser) {
-    //     return (
-    //         <LoadingPage />
-    //     );
-    // }
-    const auth = true;
+    useEffect(() => {
+        // 页面刷新时检查用户登录状态
+        const checkAuthStatus = async () => {
+            // 如果状态中已经有用户信息，直接结束loading
+            if (user) {
+                return;
+            }
+
+            // 否则调用API检查是否已登录
+            await refreshLoginUser();
+            setInited(true);
+        };
+
+        checkAuthStatus();
+    }, [user, refreshLoginUser]);
+
     const element = useRoutes(routerConfig);
-    return auth ? <React.Suspense fallback={<LoadingPage />}>{element}</React.Suspense> : <NoAuth />;
+
+    if (!inited) {
+        return <LoadingPage />;
+    }
+
+    return <React.Suspense fallback={<LoadingPage />}>{element}</React.Suspense>;
 }
