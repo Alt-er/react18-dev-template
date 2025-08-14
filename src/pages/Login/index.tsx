@@ -42,73 +42,41 @@ const Login: React.FC = () => {
                         <CarOutlined className={styles.logoIcon} />
                     </div>
                     <Title level={2} className={styles.brandTitle}>
-                        校园租车管理系统
+                        XXX管理系统
                     </Title>
-                    <Text className={styles.brandSubtitle}>
-                        专业的车辆租赁管理解决方案
-                    </Text>
+                    <Text className={styles.brandSubtitle}>XXX管理解决方案</Text>
                 </div>
             </div>
-            
+
             <div className={styles.rightPanel}>
                 <div className={styles.formWrapper}>
                     <div className={styles.formHeader}>
-                        <Title level={3} className={styles.formTitle}>登录系统</Title>
+                        <Title level={3} className={styles.formTitle}>
+                            登录系统
+                        </Title>
                         <Text className={styles.formSubtitle}>请输入您的账号信息</Text>
                     </div>
-                    
-                    <Form 
-                        name="login-form" 
-                        initialValues={{ remember: true }} 
-                        onFinish={onFinish} 
-                        autoComplete="off" 
-                        layout="vertical"
-                        className={styles.form}
-                    >
-                        <Form.Item 
-                            label="用户名" 
-                            name="username" 
-                            rules={[{ required: true, message: '请输入用户名!' }]}
-                            className={styles.formItem}
-                        >
-                            <Input 
-                                prefix={<UserOutlined className={styles.inputIcon} />} 
-                                placeholder="请输入用户名"
-                                size="large"
-                                className={styles.input}
-                            />
+
+                    <Form name="login-form" initialValues={{ remember: true }} onFinish={onFinish} autoComplete="off" layout="vertical" className={styles.form}>
+                        <Form.Item label="用户名" name="username" rules={[{ required: true, message: '请输入用户名!' }]} className={styles.formItem}>
+                            <Input prefix={<UserOutlined className={styles.inputIcon} />} placeholder="请输入用户名" size="large" className={styles.input} />
                         </Form.Item>
 
-                        <Form.Item 
-                            label="密码" 
-                            name="password" 
-                            rules={[{ required: true, message: '请输入密码!' }]}
-                            className={styles.formItem}
-                        >
-                            <Input.Password 
-                                prefix={<LockOutlined className={styles.inputIcon} />} 
-                                placeholder="请输入密码"
-                                size="large"
-                                className={styles.input}
-                            />
+                        <Form.Item label="密码" name="password" rules={[{ required: true, message: '请输入密码!' }]} className={styles.formItem}>
+                            <Input.Password prefix={<LockOutlined className={styles.inputIcon} />} placeholder="请输入密码" size="large" className={styles.input} />
                         </Form.Item>
 
                         <div className={styles.formOptions}>
                             <Form.Item name="remember" valuePropName="checked" className={styles.checkboxItem}>
                                 <Checkbox className={styles.checkbox}>记住我</Checkbox>
                             </Form.Item>
-                            <a href="#" className={styles.forgotLink}>忘记密码？</a>
+                            <a href="#" className={styles.forgotLink}>
+                                忘记密码？
+                            </a>
                         </div>
 
                         <Form.Item className={styles.submitItem}>
-                            <Button 
-                                type="primary" 
-                                htmlType="submit" 
-                                className={styles.submitButton} 
-                                loading={loading} 
-                                size="large"
-                                block
-                            >
+                            <Button type="primary" htmlType="submit" className={styles.submitButton} loading={loading} size="large" block>
                                 登录
                             </Button>
                         </Form.Item>

@@ -3,9 +3,8 @@ import { Layout, Menu, Avatar, Dropdown, Button, theme } from 'antd';
 import { UserOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, HomeOutlined, CarOutlined, FileTextOutlined, TeamOutlined, SettingOutlined } from '@ant-design/icons';
 import { Outlet } from 'react-router-dom';
 import type { MenuProps } from 'antd';
-import { useAtomValue } from 'jotai';
-import { userAtom, logoutAtom } from '@/store/user';
-import { useSetAtom } from 'jotai';
+
+import { useLoginUser } from '@/hooks/useLoginUser';
 
 const { Header, Sider, Content } = Layout;
 
@@ -61,8 +60,7 @@ const menuItems: MenuProps['items'] = [
 
 export default function ManagerLayout() {
     const [collapsed, setCollapsed] = useState(false);
-    const user = useAtomValue(userAtom);
-    const logout = useSetAtom(logoutAtom);
+    const { loginUser, logout } = useLoginUser();
     const { token } = theme.useToken();
 
     const handleLogout = () => {
@@ -108,7 +106,7 @@ export default function ManagerLayout() {
                     {collapsed ? (
                         <img
                             src="/static/car-logo.svg"
-                            alt="校园租车管理系统"
+                            alt="XXXX管理系统"
                             style={{
                                 height: '32px',
                                 width: '32px',
@@ -118,7 +116,7 @@ export default function ManagerLayout() {
                         <div style={{ display: 'flex', alignItems: 'center' }}>
                             <img
                                 src="/static/car-logo.svg"
-                                alt="校园租车管理系统"
+                                alt="XXXX管理系统"
                                 style={{
                                     height: '32px',
                                     width: '32px',
@@ -133,7 +131,7 @@ export default function ManagerLayout() {
                                     whiteSpace: 'nowrap',
                                 }}
                             >
-                                校园租车
+                                XXXX
                             </span>
                         </div>
                     )}
@@ -180,13 +178,13 @@ export default function ManagerLayout() {
                                 fontSize: '18px',
                             }}
                         >
-                            校园租车管理系统
+                            XXXX管理系统
                         </span>
                         <Dropdown menu={{ items }}>
-                            <div 
-                                style={{ 
-                                    display: 'flex', 
-                                    alignItems: 'center', 
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
                                     cursor: 'pointer',
                                     padding: '0 12px',
                                     borderRadius: '4px',
@@ -205,14 +203,14 @@ export default function ManagerLayout() {
                                     }}
                                     icon={<UserOutlined />}
                                 />
-                                {user && (
+                                {loginUser && (
                                     <span
                                         style={{
                                             marginLeft: 8,
                                             fontSize: token.fontSize,
                                         }}
                                     >
-                                        {user.name}
+                                        {loginUser.name}
                                     </span>
                                 )}
                             </div>

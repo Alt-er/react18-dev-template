@@ -2,14 +2,10 @@ import BlankLayout from '@/layouts/BlankLayout';
 import ManagerLayout from '@/layouts/ManagerLayout';
 import Home from '@/pages/Home';
 import ModelDesigner from '@/pages/ModelDesigner';
-import ProcessDesigner from '@/pages/ProcessDesigner';
 import TsTest from '@/pages/TsTest';
 import Login from '@/pages/Login';
-import Users from '@/pages/System/Users';
-import Roles from '@/pages/System/Roles';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import Departments from '@/pages/System/Departments';
 
 // const MyCase = React.lazy(() => import("@/pages/Manager/MyCase"));
 // const MyComs = React.lazy(() => import("@/pages/Manager/MyComs"));
@@ -51,9 +47,7 @@ export default [
     {
         path: '/login',
         element: <BlankLayout />,
-        children: [
-            { index: true, element: <Login /> },
-        ],
+        children: [{ index: true, element: <Login /> }],
     },
     {
         path: '/',
@@ -91,20 +85,7 @@ export default [
             // { path: "/home/project", element: <MyProject /> },
         ],
     },
-    {
-        path: '/process-designer',
-        element: <ManagerLayout />,
-        children: [{ index: true, element: <ProcessDesigner /> }],
-    },
-    {
-        path: '/system',
-        element: <ManagerLayout />,
-        children: [
-            { path: 'users', element: <Users /> },
-            { path: 'roles', element: <Roles /> },
-            { path: 'departments', element: <Departments /> },
-        ],
-    },
+
     // {
     //     path: "/manager", // 后台主页
     //     element: <ManagerLayout />,
